@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PlantVex - Explore an informative guide to plants with scientific and common names, families, and genus. Perfect for plant enthusiasts and botany lovers.">
+    <meta name="keywords" content="plants, PlantVex, botany, scientific plant names, common plant names, plant families, plant genus, neem, tulsi, peepal, aloe vera">
+    <meta name="author" content="Dhruba Das">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="PlantVex - Your Guide to the Plant World">
+    <meta property="og:description" content="Learn about various plants, including their scientific names, vernacular names, families, and other details.">
+    <meta property="og:image" content="https://plantvex.freewebhostmost.com">
+    <meta property="og:url" content="https://plantvex.freewebhostmost.com">
+    <meta name="twitter:card" content="summary_large_image">
+ <title>plantvex</title>
+    <link rel="icon" href="Plogo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <button id="refreshButton" style="display: none;">Home</button>
+    <nav class="navbar" id="Nav"> <div class="logo"><img src="Nalogo.png" alt="logo"></div>
+      <div class="inputF">
+        <i class="fa fa-search" aria-hidden="true"></i>
+                <input type="text" id="searchInput" placeholder="Search Plant Name..." onkeyup="searchContent()">
+            </div>
+        <div class="menu-toggle" aria-label="Toggle navigation"></div>
+        <ul class="nav-links">
+            <li class="Home"><a href="#mainConten" id="homeLink" onclick="setActiveLink(event, this)">Home</a></li>
+            <li class="infop"><a href="#" onclick="setActiveLink(event, this)" id="PlantInLink">Plant Information</a></li>
+            <li><a href="#AboutUsLink" onclick="setActiveLink(event, this)" id="AboutUsLinkN">About Us</a></li>
+            <li><a href="#AboutUsLink" onclick="setActiveLink(event, this)" id="ContactLink">New</a></li>
+        </ul>
+    </nav>
+
+
+
+    <div class="intro-message" id="welcome">
+      <h1>Welcome to PlantVex</h1>
+      <p>Explore PlantVex to learn about various plants, including their scientific and common names, genus, family, and key details. A simple, informative guide for plant lovers and enthusiasts.</p>
+    </div>
+
+    <main id="mainContent">   
+        <section class="plant-gallery"> 
+
+            <div class="plant-card" onclick="showDetails('Neem', 'Azadirachta indica', 'Indian Lilac', 'Azadirachta', 'Meliaceae', 'Neem.jpeg')">
+                <img src="Neem.jpeg" alt="Neem">
+                <div class="content">
+                  <h2>Neem</h2>
+                  <p><strong>Scientific Name:</strong><i> Azadirachta indica</i></p>
+                  <p><strong>Vernacular Name:</strong> Indian Lilac</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Tulsi', 'Ocimum sanctum', 'Holy Basil', 'Ocimum', 'Lamiaceae', 'Tulsi.jpg')">
+                <img src="Tulsi.jpg" alt="Tulsi">
+                <div class="content">
+                  <h2>Tulsi</h2>
+                  <p><strong>Scientific Name:</strong><i> Ocimum sanctum</i></p>
+                  <p><strong>Vernacular Name:</strong> Holy Basil</p>
+                </div>
+              </div>
+              
+              
+              <div class="plant-card" onclick="showDetails('Peepal', 'Ficus religiosa', 'Sacred Fig', 'Ficus', 'Moraceae', 'Pipal.jpg')">
+                <img src="Pipal.jpg" alt="Peepal">
+                <div class="content">
+                  <h2>Peepal</h2>
+                  <p><strong>Scientific Name:</strong><i> Ficus religiosa</i></p>
+                  <p><strong>Vernacular Name:</strong> Sacred Fig</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Aloe Vera', 'Aloe barbadensis miller', 'Aloe Vera', 'Aloe', 'Asphodelaceae', 'Aloevera.jpg')">
+                <img src="Aloevera.jpg" alt="Aloe Vera">
+                <div class="content">
+                  <h2>Aloe Vera</h2>
+                  <p><strong>Scientific Name:</strong><i> Aloe barbadensis miller</i></p>
+                  <p><strong>Vernacular Name:</strong> Aloe Vera</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Bamboo', 'Bambusoideae', 'Bamboo', 'Bambusoideae', 'Poaceae', 'Bambu.jpg')">
+                <img src="Bambu.jpg" alt="Bamboo">
+                <div class="content">
+                  <h2>Bamboo</h2>
+                  <p><strong>Scientific Name:</strong><i> Bambusoideae</i></p>
+                  <p><strong>Vernacular Name:</strong> Bamboo</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Mango', 'Mangifera indica', 'Mango', 'Mangifera', 'Anacardiaceae', 'Mango.jpg')">
+                <img src="Mango.jpg" alt="Mango">
+                <div class="content">
+                  <h2>Mango</h2>
+                  <p><strong>Scientific Name:</strong><i> Mangifera indica</i></p>
+                  <p><strong>Vernacular Name:</strong> Mango</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Gulmohar', 'Delonix regia', 'Flamboyant', 'Delonix', 'Fabaceae', 'gulmahar.jpeg')">
+                <img src="gulmahar.jpeg" alt="Gulmohar">
+                <div class="content">
+                  <h2>Gulmohar</h2>
+                  <p><strong>Scientific Name:</strong><i> Delonix regia</i></p>
+                  <p><strong>Vernacular Name:</strong> Flamboyant</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Jamun', 'Syzygium cumini', 'Indian Black Plum', 'Syzygium', 'Myrtaceae', 'jamun.jpg')">
+                <img src="jamun.jpg" alt="Jamun">
+                <div class="content">
+                  <h2>Jamun</h2>
+                  <p><strong>Scientific Name:</strong><i> Syzygium cumini</i></p>
+                  <p><strong>Vernacular Name:</strong> Indian Black Plum</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Bael', 'Aegle marmelos', 'Bael', 'Aegle', 'Rutaceae', 'bel.jpg')">
+                <img src="bel.jpg" alt="Bael">
+                <div class="content">
+                  <h2>Bael</h2>
+                  <p><strong>Scientific Name:</strong><i> Aegle marmelos</i></p>
+                  <p><strong>Vernacular Name:</strong> Bael</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Coconut', 'Cocos nucifera', 'Coconut', 'Cocos', 'Arecaceae', 'Coconut.jpeg')">
+                <img src="Coconut.jpeg" alt="Coconut">
+                <div class="content">
+                  <h2>Coconut</h2>
+                  <p><strong>Scientific Name:</strong><i> Cocos nucifera</i></p>
+                  <p><strong>Vernacular Name:</strong> Coconut</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Basil', 'Ocimum basilicum', 'Sweet Basil', 'Ocimum', 'Lamiaceae', 'Basil.jpeg')">
+                <img src="Basil.jpeg" alt="Basil">
+                <div class="content">
+                  <h2>Basil</h2>
+                  <p><strong>Scientific Name:</strong><i> Ocimum basilicum</i></p>
+                  <p><strong>Vernacular Name:</strong> Sweet Basil</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Cardamom', 'Elettaria cardamomum', 'Green Cardamom', 'Elettaria', 'Zingiberaceae', 'cardamom.jpg')">
+                <img src="cardamom.jpg" alt="Cardamom">
+                <div class="content">
+                  <h2>Cardamom</h2>
+                  <p><strong>Scientific Name:</strong><i> Elettaria cardamomum</i></p>
+                  <p><strong>Vernacular Name:</strong> Green Cardamom</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Coriander', 'Coriandrum sativum', 'Cilantro', 'Coriandrum', 'Apiaceae', 'coriander.jpeg')">
+                <img src="coriander.jpeg" alt="Coriander">
+                <div class="content">
+                  <h2>Coriander</h2>
+                  <p><strong>Scientific Name:</strong><i> Coriandrum sativum</i></p>
+                  <p><strong>Vernacular Name:</strong> Cilantro</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Chili', 'Capsicum annuum', 'Chili Pepper', 'Capsicum', 'Solanaceae', 'chili.jpeg')">
+                <img src="chili.jpeg" alt="Chili">
+                <div class="content">
+                  <h2>Chili</h2>
+                  <p><strong>Scientific Name:</strong><i> Capsicum annuum</i></p>
+                  <p><strong>Vernacular Name:</strong> Chili Pepper</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Cucumber', 'Cucumis sativus', 'Cucumber', 'Cucumis', 'Cucurbitaceae', 'cucumber.jpeg')">
+                <img src="cucumber.jpeg" alt="Cucumber">
+                <div class="content">
+                  <h2>Cucumber</h2>
+                  <p><strong>Scientific Name:</strong><i> Cucumis sativus</i></p>
+                  <p><strong>Vernacular Name:</strong> Cucumber</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Fenugreek', 'Trigonella foenum-graecum', 'Methi', 'Trigonella', 'Fabaceae', 'fenugreek.jpg')">
+                <img src="fenugreek.jpg" alt="Fenugreek">
+                <div class="content">
+                  <h2>Fenugreek</h2>
+                  <p><strong>Scientific Name:</strong><i> Trigonella foenum-graecum</i></p>
+                  <p><strong>Vernacular Name:</strong> Methi</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Ginger', 'Zingiber officinale', 'Ginger', 'Zingiber', 'Zingiberaceae', 'ginger.jpeg')">
+                <img src="ginger.jpeg" alt="Ginger">
+                <div class="content">
+                  <h2>Ginger</h2>
+                  <p><strong>Scientific Name:</strong><i> Zingiber officinale</i></p>
+                  <p><strong>Vernacular Name:</strong> Ginger</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Guava', 'Psidium guajava', 'Guava', 'Psidium', 'Myrtaceae', 'guwava.jpeg')">
+                <img src="guwava.jpeg" alt="Guava">
+                <div class="content">
+                  <h2>Guava</h2>
+                  <p><strong>Scientific Name:</strong><i> Psidium guajava</i></p>
+                  <p><strong>Vernacular Name:</strong> Guava</p>
+                </div>
+              </div>
+              
+            
+                <div class="plant-card" onclick="showDetails('Jackfruit', 'Artocarpus heterophyllus', 'Jackfruit', 'Artocarpus', 'Moraceae', 'jackfruit.jpeg')">
+                <img src="jackfruit.jpeg" alt="Jackfruit">
+                <div class="content">
+                  <h2>Jackfruit</h2>
+                  <p><strong>Scientific Name:</strong><i> Artocarpus heterophyllus</i></p>
+                  <p><strong>Vernacular Name:</strong> Jackfruit</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Jasmine', 'Jasminum sambac', 'Indian Jasmine', 'Jasminum', 'Oleaceae', 'jasmine.jpeg')">
+                <img src="jasmine.jpeg" alt="Jasmine">
+                <div class="content">
+                  <h2>Jasmine</h2>
+                  <p><strong>Scientific Name:</strong><i> Jasminum sambac</i></p>
+                  <p><strong>Vernacular Name:</strong> Indian Jasmine</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Lemon', 'Citrus limon', 'Lemon', 'Citrus', 'Rutaceae', 'Lemon.jpg')">
+                <img src="Lemon.jpg" alt="Lemon">
+                <div class="content">
+                  <h2>Lemon</h2>
+                  <p><strong>Scientific Name:</strong><i> Citrus limon</i></p>
+                  <p><strong>Vernacular Name:</strong> Lemon</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Lime', 'Citrus aurantiifolia', 'Lime', 'Citrus', 'Rutaceae', 'Limon.jpeg')">
+                <img src="Limon.jpeg" alt="Lime">
+                <div class="content">
+                  <h2>Lime</h2>
+                  <p><strong>Scientific Name:</strong><i> Citrus aurantiifolia</i></p>
+                  <p><strong>Vernacular Name:</strong> Lime</p>
+                </div>
+              </div>
+              
+              
+              <div class="plant-card" onclick="showDetails('Mint', 'Mentha', 'Mint', 'Mentha', 'Lamiaceae', 'mint.jpeg')">
+                <img src="mint.jpeg" alt="Mint">
+                <div class="content">
+                  <h2>Mint</h2>
+                  <p><strong>Scientific Name:</strong><i> Mentha</i></p>
+                  <p><strong>Vernacular Name:</strong> Mint</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Mulberry', 'Morus alba', 'Mulberry', 'Morus', 'Moraceae', 'mulberry.jpeg')">
+                <img src="mulberry.jpeg" alt="Mulberry">
+                <div class="content">
+                  <h2>Mulberry</h2>
+                  <p><strong>Scientific Name:</strong><i> Morus alba</i></p>
+                  <p><strong>Vernacular Name:</strong> Mulberry</p>
+                </div>
+              </div>
+              
+              
+              <div class="plant-card" onclick="showDetails('Sandalwood', 'Santalum album', 'Sandalwood', 'Santalum', 'Santalaceae', 'sandalwood.jpg')">
+                <img src="sandalwood.jpg" alt="Sandalwood">
+                <div class="content">
+                  <h2>Sandalwood</h2>
+                  <p><strong>Scientific Name:</strong><i> Santalum album</i></p>
+                  <p><strong>Vernacular Name:</strong> Sandalwood</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Tamarind', 'Tamarindus indica', 'Tamarind', 'Tamarindus', 'Fabaceae', 'tamarind.jpg')">
+                <img src="tamarind.jpg" alt="Tamarind">
+                <div class="content">
+                  <h2>Tamarind</h2>
+                  <p><strong>Scientific Name:</strong><i> Tamarindus indica</i></p>
+                  <p><strong>Vernacular Name:</strong> Tamarind</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Turmeric', 'Curcuma longa', 'Turmeric', 'Curcuma', 'Zingiberaceae', 'turmeric.jpeg')">
+                <img src="turmeric-6638341_1280.jpg" alt="turmeric">
+                <div class="content">
+                  <h2>Turmeric</h2>
+                  <p><strong>Scientific Name:</strong><i> Curcuma longa</i></p>
+                  <p><strong>Vernacular Name:</strong> Turmeric</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Rose', 'Rosa', 'Rose', 'Rosa', 'Rosaceae', 'rose.jpg')">
+                <img src="rose.jpg" alt="Rose">
+                <div class="content">
+                  <h2>Rose</h2>
+                  <p><strong>Scientific Name:</strong><i> Rosa</i></p>
+                  <p><strong>Vernacular Name:</strong> Rose</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Banana', 'Musa spp.', 'Banana', 'Musa', 'Musaceae', 'banana.jpeg')">
+                <img src="banana.jpeg" alt="Banana">
+                <div class="content">
+                  <h2>Banana</h2>
+                  <p><strong>Scientific Name:</strong><i> Musa spp</i></p>
+                  <p><strong>Vernacular Name:</strong> Banana</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Lotus', 'Nelumbo nucifera', 'Lotus', 'Nelumbo', 'Nelumbonaceae', 'lotus.jpeg')">
+                <img src="lotus.jpeg" alt="Lotus">
+                <div class="content">
+                  <h2>Lotus</h2>
+                  <p><strong>Scientific Name:</strong><i> Nelumbo nucifera</i></p>
+                  <p><strong>Vernacular Name:</strong> Lotus</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Papaya', 'Carica papaya', 'Papaya', 'Carica', 'Caricaceae', 'papaya.jpeg')">
+                <img src="papaya.jpeg" alt="Papaya">
+                <div class="content">
+                  <h2>Papaya</h2>
+                  <p><strong>Scientific Name:</strong><i> Carica papaya</i></p>
+                  <p><strong>Vernacular Name:</strong> Papaya</p>
+                </div>
+              </div>
+            
+              
+              
+              <div class="plant-card" onclick="showDetails('Cabbage', 'Brassica oleracea', 'Cabbage', 'Brassica', 'Brassicaceae', 'cabbage.jpeg')">
+                <img src="cabbage.jpeg" alt="Cabbage">
+                <div class="content">
+                  <h2>Cabbage</h2>
+                  <p><strong>Scientific Name:</strong><i> Brassica oleracea</i></p>
+                  <p><strong>Vernacular Name:</strong> Cabbage</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Pineapple', 'Ananas comosus', 'Pineapple', 'Ananas', 'Bromeliaceae', 'pineapple.jpeg')">
+                <img src="pineapple.jpeg" alt="Pineapple">
+                <div class="content">
+                  <h2>Pineapple</h2>
+                  <p><strong>Scientific Name:</strong><i> Ananas comosus</i></p>
+                  <p><strong>Vernacular Name:</strong> Pineapple</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Brinjal', 'Solanum melongena', 'Brinjal', 'Solanum', 'Solanaceae', 'brinjal-flower-2853180_640.jpg')">
+                <img src="brinjal-flower-2853180_640.jpg" alt="Brinjal">
+                <div class="content">
+                  <h2>Brinjal</h2>
+                  <p><strong>Scientific Name:</strong><i> Solanum melongena</i></p>
+                  <p><strong>Vernacular Name:</strong> Brinjal</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Peas', 'Pisum sativum', 'Peas', 'Pisum', 'Fabaceae', 'peas.jpg')">
+                <img src="peas.jpg" alt="Peas">
+                <div class="content">
+                  <h2>Peas</h2>
+                  <p><strong>Scientific Name:</strong><i> Pisum sativum</i></p>
+                  <p><strong>Vernacular Name:</strong> Peas</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Spinach', 'Spinacia oleracea', 'Spinach', 'Spinacia', 'Amaranthaceae', 'spinach.jpg')">
+                <img src="spinach.jpg" alt="Spinach">
+                <div class="content">
+                  <h2>Spinach</h2>
+                  <p><strong>Scientific Name:</strong><i> Spinacia oleracea</i></p>
+                  <p><strong>Vernacular Name:</strong> Spinach</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Okra', 'Abelmoschus esculentus', 'Okra', 'Abelmoschus', 'Malvaceae', 'okra.jpg')">
+                <img src="okra.jpg" alt="Okra">
+                <div class="content">
+                  <h2>Okra</h2>
+                  <p><strong>Scientific Name:</strong><i> Abelmoschus esculentus</i></p>
+                  <p><strong>Vernacular Name:</strong> Okra</p>
+                </div>
+              </div>
+           
+              
+              <div class="plant-card" onclick="showDetails('Lentil', 'Lens culinaris', 'Lentil', 'Lens', 'Fabaceae', 'lentil.jpg')">
+                <img src="lentil.jpg" alt="Lentil">
+                <div class="content">
+                  <h2>Lentil</h2>
+                  <p><strong>Scientific Name:</strong><i> Lens culinaris</i></p>
+                  <p><strong>Vernacular Name:</strong> Lentil</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Carrot', 'Daucus carota', 'Carrot', 'Daucus', 'Apiaceae', 'carrot.jpg')">
+                <img src="carrot.jpg" alt="Carrot">
+                <div class="content">
+                  <h2>Carrot</h2>
+                  <p><strong>Scientific Name:</strong><i> Daucus carota</i></p>
+                  <p><strong>Vernacular Name:</strong> Carrot</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Potato', 'Solanum tuberosum', 'Potato', 'Solanum', 'Solanaceae', 'potato.jpg')">
+                <img src="potato1.jpg" alt="Potato">
+                <div class="content">
+                  <h2>Potato</h2>
+                  <p><strong>Scientific Name:</strong><i> Solanum tuberosum</i></p>
+                  <p><strong>Vernacular Name:</strong> Potato</p>
+                </div>
+              </div>
+              
+          
+              
+              <div class="plant-card" onclick="showDetails('Onion', 'Allium cepa', 'Onion', 'Allium', 'Amaryllidaceae', 'onion.jpg')">
+                <img src="onion.jpg" alt="Onion">
+                <div class="content">
+                  <h2>Onion</h2>
+                  <p><strong>Scientific Name:</strong><i> Allium cepa</i></p>
+                  <p><strong>Vernacular Name:</strong> Onion</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Garlic', 'Allium sativum', 'Garlic', 'Allium', 'Amaryllidaceae', 'garlic.jpg')">
+                <img src="garlic.jpg" alt="Garlic">
+                <div class="content">
+                  <h2>Garlic</h2>
+                  <p><strong>Scientific Name:</strong><i> Allium sativum</i></p>
+                  <p><strong>Vernacular Name:</strong> Garlic</p>
+                </div>
+              </div>
+              
+            
+              
+              <div class="plant-card" onclick="showDetails('Mustard', 'Brassica juncea', 'Mustard', 'Brassica', 'Brassicaceae', 'master.jpg')">
+                <img src="master.jpg" alt="Mustard">
+                <div class="content">
+                  <h2>Mustard</h2>
+                  <p><strong>Scientific Name:</strong><i> Brassica juncea</i></p>
+                  <p><strong>Vernacular Name:</strong> Mustard</p>
+                </div>
+              </div>
+             
+             
+              <div class="plant-card" onclick="showDetails('Pumpkin', 'Cucurbita pepo', 'Pumpkin', 'Cucurbita', 'Cucurbitaceae', 'pumpkin.jpg')">
+                <img src="pumpkin.jpg" alt="Pumpkin">
+                <div class="content">
+                  <h2>Pumpkin</h2>
+                  <p><strong>Scientific Name:</strong><i> Cucurbita pepo</i></p>
+                  <p><strong>Vernacular Name:</strong> Pumpkin</p>
+                </div>
+              </div>
+              
+             
+              
+              <div class="plant-card" onclick="showDetails('Curry Leaf', 'Murraya koenigii', 'Curry Leaf', 'Murraya', 'Rutaceae', 'curry.jpg')">
+                <img src="curry.jpg" alt="Curry Leaf">
+                <div class="content">
+                  <h2>Curry Leaf</h2>
+                  <p><strong>Scientific Name:</strong><i> Murraya koenigii</i></p>
+                  <p><strong>Vernacular Name:</strong> Curry Leaf</p>
+                </div>
+              </div> 
+              
+              <div class="plant-card" onclick="showDetails('Pomegranate', 'Punica granatum', 'Pomegranate', 'Punica', 'Lythraceae', 'pomegranate.jpg')">
+                <img src="pomegranate.jpg" alt="Pomegranate">
+                <div class="content">
+                  <h2>Pomegranate</h2>
+                  <p><strong>Scientific Name:</strong><i> Punica granatum</i></p>
+                  <p><strong>Vernacular Name:</strong> Pomegranate</p>
+                </div>
+              </div>
+              
+              
+              <div class="plant-card" onclick="showDetails('Ashwagandha', 'Withania somnifera', 'Ashwagandha', 'Withania', 'Solanaceae', 'bladder.jpg')">
+                <img src="bladder.jpg" alt="Ashwagandha">
+                <div class="content">
+                  <h2>Ashwagandha</h2>
+                  <p><strong>Scientific Name:</strong><i> Withania somnifera</i></p>
+                  <p><strong>Vernacular Name:</strong> Ashwagandha</p>
+                </div>
+              </div>
+            
+              <div class="plant-card" onclick="showDetails('Hibiscus', 'Hibiscus rosa-sinensis', 'Hibiscus', 'Hibiscus', 'Malvaceae', 'hibiscus.jpg')">
+                <img src="hibiscus.jpg" alt="Hibiscus">
+                <div class="content">
+                  <h2>Hibiscus</h2>
+                  <p><strong>Scientific Name:</strong><i> Hibiscus rosa-sinensis </i></p>
+                  <p><strong>Vernacular Name:</strong> Hibiscus</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Amla', 'Phyllanthus emblica', 'Amla', 'Phyllanthus', 'Phyllanthaceae', 'amla.jpg')">
+                <img src="amla.jpg" alt="Amla">
+                <div class="content">
+                  <h2>Amla</h2>
+                  <p><strong>Scientific Name:</strong><i> Phyllanthus emblica</i></p>
+                  <p><strong>Vernacular Name:</strong> Amla</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Ashoka Tree', 'Saraca asoca', 'Ashoka Tree', 'Saraca', 'Fabaceae', 'ashoka.jpg')">
+                <img src="ashoka.jpg" alt="Ashoka Tree">
+                <div class="content">
+                  <h2>Ashoka Tree</h2>
+                  <p><strong>Scientific Name:</strong><i> Saraca asoca</i></p>
+                  <p><strong>Vernacular Name:</strong> Ashoka Tree</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Radish', 'Raphanus sativus', 'Radish', 'Raphanus', 'Brassicaceae', 'radish.jpg')">
+                <img src="radish.jpg" alt="Radish">
+                <div class="content">
+                  <h2>Radish</h2>
+                  <p><strong>Scientific Name:</strong><i> Raphanus sativus</i></p>
+                  <p><strong>Vernacular Name:</strong> Radish</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Moringa', 'Moringa oleifera', 'Moringa', 'Moringa', 'Moringaceae', 'Moringa.jpg')">
+                <img src="Moringa.jpg" alt="Moringa">
+                <div class="content">
+                  <h2>Moringa</h2>
+                  <p><strong>Scientific Name:</strong><i> Moringa oleifera</i></p>
+                  <p><strong>Vernacular Name:</strong> Moringa</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Date Palm', 'Phoenix dactylifera', 'Date Palm', 'Phoenix', 'Arecaceae', 'date-palm.jpg')">
+                <img src="date-palm.jpg" alt="Date Palm">
+                <div class="content">
+                  <h2>Date Palm</h2>
+                  <p><strong>Scientific Name:</strong><i> Phoenix dactylifera</i></p>
+                  <p><strong>Vernacular Name:</strong> Date Palm</p>
+                </div>
+              </div>
+             
+              
+              <div class="plant-card" onclick="showDetails('Saffron', 'Crocus sativus', 'Saffron', 'Crocus', 'Iridaceae', 'saffron.jpg')">
+                <img src="saffron.jpg" alt="Saffron">
+                <div class="content">
+                  <h2>Saffron</h2>
+                  <p><strong>Scientific Name:</strong><i> Crocus sativus</i></p>
+                  <p><strong>Vernacular Name:</strong> Saffron</p>
+                </div>
+              </div>
+
+              
+              <div class="plant-card" onclick="showDetails('Watermelon', 'Citrullus lanatus', 'Watermelon', 'Citrullus', 'Cucurbitaceae', 'watermelon.jpg')">
+                <img src="watermelon.jpg" alt="Watermelon">
+                <div class="content">
+                  <h2>Watermelon</h2>
+                  <p><strong>Scientific Name:</strong><i> Citrullus lanatus</i></p>
+                  <p><strong>Vernacular Name:</strong> Watermelon</p>
+                </div>
+              </div>
+           
+              <div class="plant-card" onclick="showDetails('Bottle Gourd', 'Lagenaria siceraria', 'Bottle Gourd', 'Lagenaria', 'Cucurbitaceae', 'bottlegourd.jpg')">
+                <img src="bottlegourd.jpg" alt="Bottle Gourd">
+                <div class="content">
+                  <h2>Bottle Gourd</h2>
+                  <p><strong>Scientific Name:</strong><i> Lagenaria siceraria</i></p>
+                  <p><strong>Vernacular Name:</strong> Bottle Gourd</p>
+                </div>
+              </div>
+            
+              <div class="plant-card" onclick="showDetails('Cauliflower', 'Brassica oleracea var. botrytis', 'Cauliflower', 'Brassica', 'Brassicaceae', 'cauliflower.jpg')">
+                <img src="cauliflower.jpg" alt="Cauliflower">
+                <div class="content">
+                  <h2>Cauliflower</h2>
+                  <p><strong>Scientific Name:</strong><i> Brassica oleracea var. botrytis</i></p>
+                  <p><strong>Vernacular Name:</strong> Cauliflower</p>
+                </div>
+              </div>
+             
+              
+              <div class="plant-card" onclick="showDetails('Ficus', 'Ficus benjamina', 'Ficus', 'Ficus', 'Moraceae', 'ficus.jpg')">
+                <img src="ficus.jpg" alt="Ficus">
+                <div class="content">
+                  <h2>Ficus</h2>
+                  <p><strong>Scientific Name:</strong><i> Ficus benjamina</i></p>
+                  <p><strong>Vernacular Name:</strong> Ficus</p>
+                </div>
+              </div>
+              
+              
+              
+              <div class="plant-card" onclick="showDetails('Lettuce', 'Lactuca sativa', 'Lettuce', 'Lactuca', 'Asteraceae', 'lettuce.jpg')">
+                <img src="lettuce.jpg" alt="Lettuce">
+                <div class="content">
+                  <h2>Lettuce</h2>
+                  <p><strong>Scientific Name:</strong><i> Lactuca sativa</i></p>
+                  <p><strong>Vernacular Name:</strong> Lettuce</p>
+                </div>
+              </div>
+              
+              
+              <div class="plant-card" onclick="showDetails('Marigold', 'Tagetes', 'Marigold', 'Tagetes', 'Asteraceae', 'marigold.jpg')">
+                <img src="marigold.jpg" alt="Marigold">
+                <div class="content">
+                  <h2>Marigold</h2>
+                  <p><strong>Scientific Name:</strong><i> Tagetes</i></p>
+                  <p><strong>Vernacular Name:</strong> Marigold</p>
+                </div>
+              </div>
+            
+              <div class="plant-card" onclick="showDetails('Bougainvillea', 'Bougainvillea', 'Bougainvillea', 'Bougainvillea', 'Nyctaginaceae', 'bougainvillea.jpg')">
+                <img src="bougainvillea.jpg" alt="Bougainvillea">
+                <div class="content">
+                  <h2>Bougainvillea</h2>
+                  <p><strong>Scientific Name:</strong><i> Bougainvillea</i></p>
+                  <p><strong>Vernacular Name:</strong> Bougainvillea</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Champa', 'Plumeria', 'Champa', 'Plumeria', 'Apocynaceae', 'Champa.jpg')">
+                <img src="Champa.jpg" alt="Champa">
+                <div class="content">
+                  <h2>Champa</h2>
+                  <p><strong>Scientific Name:</strong><i> Plumeria</i></p>
+                  <p><strong>Vernacular Name:</strong> Champa</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Frangipani', 'Plumeria rubra', 'Frangipani', 'Plumeria', 'Apocynaceae', 'frangipani.jpg')">
+                <img src="frangipani.jpg" alt="Frangipani">
+                <div class="content">
+                  <h2>Frangipani</h2>
+                  <p><strong>Scientific Name:</strong><i> Plumeria rubra</i></p>
+                  <p><strong>Vernacular Name:</strong> Frangipani</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Cypress', 'Cupressus', 'Cypress', 'Cupressus', 'Cupressaceae', 'cypress.jpg')">
+                <img src="cypress.jpg" alt="Cypress">
+                <div class="content">
+                  <h2>Cypress</h2>
+                  <p><strong>Scientific Name:</strong><i> Cupressus</i></p>
+                  <p><strong>Vernacular Name:</strong> Cypress</p>
+                </div>
+              </div>
+             
+              
+              <div class="plant-card" onclick="showDetails('Custard Apple', 'Annona squamosa', 'Custard Apple', 'Annona', 'Annonaceae', 'custard.jpg')">
+                <img src="custard.jpg" alt="Custard Apple">
+                <div class="content">
+                  <h2>Custard Apple</h2>
+                  <p><strong>Scientific Name:</strong><i> Annona squamosa</i></p>
+                  <p><strong>Vernacular Name:</strong> Custard Apple</p>
+                </div>
+              </div>
+              
+          
+             
+              <div class="plant-card" onclick="showDetails('Bittermelon', 'Momordica charantia', 'Bittermelon', 'Momordica', 'Cucurbitaceae', 'bittermelon.jpg')">
+                <img src="bittermelon.jpg" alt="Bittermelon">
+                <div class="content">
+                  <h2>Bitter melon</h2>
+                  <p><strong>Scientific Name:</strong><i> Momordica charantia</i></p>
+                  <p><strong>Vernacular Name:</strong> Bittermelon</p>
+                </div>
+              </div>
+         
+              <div class="plant-card" onclick="showDetails('Grapes', 'Vitis vinifera', 'Grapes', 'Vitis', 'Vitaceae', 'Grapes.jpg')">
+                <img src="Grapes.jpg" alt="Grapes">
+                <div class="content">
+                  <h2>Grapes</h2>
+                  <p><strong>Scientific Name:</strong><i> Vitis vinifera</i></p>
+                  <p><strong>Vernacular Name:</strong> Grapes</p>
+                </div>
+              </div>
+             
+              <div class="plant-card" onclick="showDetails('Soursop', 'Annona muricata', 'Soursop', 'Annona', 'Annonaceae', 'Soursop.jpg')">
+                <img src="Soursop.jpg" alt="Soursop">
+                <div class="content">
+                  <h2>Soursop</h2>
+                  <p><strong>Scientific Name:</strong><i> Annona muricata</i></p>
+                  <p><strong>Vernacular Name:</strong> Soursop</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Kokum', 'Garcinia indica', 'Kokum', 'Garcinia', 'Clusiaceae', 'kokum.jpg')">
+                <img src="kokum.jpg" alt="Kokum">
+                <div class="content">
+                  <h2>Kokum</h2>
+                  <p><strong>Scientific Name:</strong><i> Garcinia indica</i></p>
+                  <p><strong>Vernacular Name:</strong> Kokum</p>
+                </div>
+              </div>
+            
+              
+              <div class="plant-card" onclick="showDetails('Peach', 'Prunus persica', 'Peach', 'Prunus', 'Rosaceae', 'peach.jpg')">
+                <img src="peach.jpg" alt="Peach">
+                <div class="content">
+                  <h2>Peach</h2>
+                  <p><strong>Scientific Name:</strong><i> Prunus persica</i></p>
+                  <p><strong>Vernacular Name:</strong> Peach</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Plum', 'Prunus domestica', 'Plum', 'Prunus', 'Rosaceae', 'plums.jpg')">
+                <img src="plums.jpg" alt="Plum">
+                <div class="content">
+                  <h2>Plum</h2>
+                  <p><strong>Scientific Name:</strong><i> Prunus domestica</i></p>
+                  <p><strong>Vernacular Name:</strong> Plum</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Lychee', 'Litchi chinensis', 'Lychee', 'Litchi', 'Sapindaceae', 'lychee.jpg')">
+                <img src="lychee.jpg" alt="Lychee">
+                <div class="content">
+                  <h2>Lychee</h2>
+                  <p><strong>Scientific Name:</strong><i> Litchi chinensis</i></p>
+                  <p><strong>Vernacular Name:</strong> Litchi</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Sesame', 'Sesamum indicum', 'Sesame', 'Sesamum', 'Pedaliaceae', 'Sheesham.jpg')">
+                <img src="Sheesham.jpg" alt="Sesame">
+                <div class="content">
+                  <h2>Sesame</h2>
+                  <p><strong>Scientific Name:</strong><i> Sesamum indicum</i></p>
+                  <p><strong>Vernacular Name:</strong> Sesame</p>
+                </div>
+              </div>
+             
+             
+             
+              <div class="plant-card" onclick="showDetails('Fennel', 'Foeniculum vulgare', 'Fennel', 'Foeniculum', 'Apiaceae', 'fennel.jpg')">
+                <img src="fennel.jpg" alt="Fennel">
+                <div class="content">
+                  <h2>Fennel</h2>
+                  <p><strong>Scientific Name:</strong><i> Foeniculum vulgare</i> </p>
+                  <p><strong>Vernacular Name:</strong> Fennel</p>
+                </div>
+              </div>
+            
+              
+              <div class="plant-card" onclick="showDetails('Henna', 'Lawsonia inermis', 'Henna', 'Lawsonia', 'Lythraceae', 'henna.jpg')">
+                <img src="henna.jpg" alt="Henna">
+                <div class="content">
+                  <h2>Henna</h2>
+                  <p><strong>Scientific Name:</strong><i> Lawsonia inermis</i></p>
+                  <p><strong>Vernacular Name:</strong> Henna</p>
+                </div>
+              </div>
+              
+             
+              
+              <div class="plant-card" onclick="showDetails('Chickpea', 'Cicer arietinum', 'Chickpea', 'Cicer', 'Fabaceae', 'Chickpeas.jpg')">
+                <img src="Chickpeas.jpg" alt="Chickpea">
+                <div class="content">
+                  <h2>Chickpea</h2>
+                  <p><strong>Scientific Name:</strong><i> Cicer arietinum</i></p>
+                  <p><strong>Vernacular Name:</strong> Chickpea</p>
+                </div>
+              </div>
+              
+              <div class="plant-card" onclick="showDetails('Soybean', 'Glycine max', 'Soybean', 'Glycine', 'Fabaceae', 'soybean.jpg')">
+                <img src="soybean.jpg" alt="Soybean">
+                <div class="content">
+                  <h2>Soybean</h2>
+                  <p><strong>Scientific Name:</strong><i> Glycine max</i></p>
+                  <p><strong>Vernacular Name:</strong> Soybean</p>
+                </div>
+              </div>
+              
+            
+              <div class="plant-card" onclick="showDetails('Apple', 'Malus domestica', 'Apple', 'Malus', 'Rosaceae', 'apple.jpg')">
+                <img src="apple.jpg" alt="Apple">
+                <div class="content">
+                  <h2>Apple</h2>
+                  <p><strong>Scientific Name:</strong><i> Malus domestica</i></p>
+                  <p><strong>Vernacular Name:</strong> Apple</p>
+                </div>
+              </div>
+             
+             
+              
+              <div class="plant-card" onclick="showDetails('Lemon Grass', 'Cymbopogon citratus', 'Lemon Grass', 'Cymbopogon', 'Poaceae', 'lemongrass.jpg')">
+                <img src="lemongrass.jpg" alt="Lemon Grass">
+                <div class="content">
+                  <h2>Lemon Grass</h2>
+                  <p><strong>Scientific Name:</strong><i> Cymbopogon citratus</i></p>
+                  <p><strong>Vernacular Name:</strong> Lemon Grass</p>
+                </div>
+              </div>
+              
+            <div class="plant-card" onclick="showDetails('Indian Baobab', 'Adansonia digitata', 'Indian Baobab', 'Adansonia', 'Malvaceae', 'baobab.jpg')">
+                <img src="baobab.jpg" alt="Indian Baobab">
+                <div class="content">
+                    <h2>Indian Baobab</h2>
+                    <p><strong>Scientific Name:</strong><i> Adansonia digitata</i></p>
+                    <p><strong>Vernacular Name:</strong> Indian Baobab</p>
+                </div>
+            </div>
+            
+            <div class="plant-card" onclick="showDetails('Nagkesar', 'Mesua ferrea', 'Nagkesar', 'Mesua', 'Calophyllaceae', 'Nagkesar.jpg')">
+                <img src="Nagkesar.jpg" alt="Nagkesar">
+                <div class="content">
+                    <h2>Nagkesar</h2>
+                    <p><strong>Scientific Name:</strong><i> Mesua ferrea</i></p>
+                    <p><strong>Vernacular Name:</strong> Nagkesar</p>
+                </div>
+            </div>
+            
+            <div class="plant-card" onclick="showDetails('Arjuna', 'Terminalia arjuna', 'Arjuna', 'Terminalia', 'Combretaceae', 'Arjuna.jpeg')">
+                <img src="Arjuna.jpeg" alt="Arjuna">
+                <div class="content">
+                    <h2>Arjuna</h2>
+                    <p><strong>Scientific Name:</strong><i> Terminalia arjuna</i></p>
+                    <p><strong>Vernacular Name:</strong> Arjuna</p>
+                </div>
+            </div>
+            
+    
+            <div class="plant-card" onclick="showDetails('Bakul', 'Mimusops elengi', 'Bakul', 'Mimusops', 'Sapotaceae', 'bakul.jpg')">
+                <img src="bakul.jpg" alt="Bakul">
+                <div class="content">
+                    <h2>Bakul</h2>
+                    <p><strong>Scientific Name:</strong><i> Mimusops elengi</i></p>
+                    <p><strong>Vernacular Name:</strong> Bakul</p>
+                </div>
+            </div>
+            
+            <div class="plant-card" onclick="showDetails('Butterfly Pea', 'Clitoria ternatea', 'Butterfly Pea', 'Clitoria', 'Fabaceae', 'buterflyflower.jpg')">
+                <img src="buterflyflower.jpg" alt="Butterfly Pea">
+                <div class="content">
+                    <h2>Butterfly Pea</h2>
+                    <p><strong>Scientific Name:</strong><i> Clitoria ternatea</i></p>
+                    <p><strong>Vernacular Name:</strong> Butterfly Pea</p>
+                </div>
+            </div>
+            
+            <div class="plant-card" onclick="showDetails('Akashmoni', 'Acacia auriculiformis', 'Akashmoni', 'Acacia', 'Fabaceae', 'Akashmoni.jpg')">
+                <img src="Akashmoni.jpg" alt="Akashmoni">
+                <div class="content">
+                    <h2>Akashmoni</h2>
+                    <p><strong>Scientific Name:</strong><i> Acacia auriculiformis</i></p>
+                    <p><strong>Vernacular Name:</strong> Akashmoni</p>
+                </div>
+            </div>
+            
+            <div class="plant-card" onclick="showDetails('Touch-Me-Not', 'Mimosa pudica', 'Touch-Me-Not', 'Mimosa', 'Fabaceae', 'Touch.jpg')">
+                <img src="Touch.jpg" alt="Touch-Me-Not">
+                <div class="content">
+                    <h2>Touch-Me-Not</h2>
+                    <p><strong>Scientific Name:</strong><i> Mimosa pudica</i></p>
+                    <p><strong>Vernacular Name:</strong> Touch-Me-Not</p>
+                </div>
+            </div>
+            
+            
+            <div class="plant-card" onclick="showDetails('Phalsa', 'Grewia asiatica', 'Phalsa', 'Grewia', 'Malvaceae', 'Phalsa.jpg')">
+                <img src="Phalsa.jpg" alt="Phalsa">
+                <div class="content">
+                    <h2>Phalsa</h2>
+                    <p><strong>Scientific Name:</strong><i> Grewia asiatica</i></p>
+                    <p><strong>Vernacular Name:</strong> Phalsa</p>
+                </div>
+            </div>
+            
+            <div class="plant-card" onclick="showDetails('Sweet Flag (Vacha)', 'Acorus calamus', 'Sweet Flag', 'Acorus', 'Acoraceae', 'Sweet.jpg')">
+                <img src="Sweet.jpg" alt="Sweet Flag">
+                <div class="content">
+                    <h2>Sweet Flag</h2>
+                    <p><strong>Scientific Name:</strong><i> Acorus calamus</i></p>
+                    <p><strong>Vernacular Name:</strong> Sweet Flag (Vacha)</p>
+                </div>
+            </div>
+            
+            <div class="plant-card" onclick="showDetails('Indian Cork Tree', 'Millingtonia hortensis', 'Indian Cork Tree', 'Millingtonia', 'Bignoniaceae', 'Millingtonia.jpg')">
+                <img src="Millingtonia.jpg" alt="Indian Cork Tree">
+                <div class="content">
+                    <h2>Indian Cork Tree</h2>
+                    <p><strong>Scientific Name:</strong><i> Millingtonia hortensis</i></p>
+                    <p><strong>Vernacular Name:</strong> Indian Cork Tree</p>
+                </div>
+            </div>            
+
+</section>
+
+<div class="pagination-buttons" id="next">
+  <button class="nav-button" id="prev-button" onclick="prevPage()" disabled>&#10094; Previous</button>
+  <button class="nav-button" id="next-button" onclick="nextPage()">Next &#10095;</button>
+</div>
+
+
+ <!-- Modal -->
+ <div class="modal" id="modal" onclick="closeModal()">
+    <div class="modal-content" onclick="event.stopPropagation();">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+      <img id="modalImage" src="" alt="Plant Image">
+      <h2 id="modalName"></h2>
+      <p><strong>Scientific Name:</strong> <i><span id="modalBotanicalName"></span></i></p>
+      <p><strong>Vernacular Name:</strong> <span id="modalCommonName"></span></p>
+      <p><strong>Genus:</strong> <span id="modalGenus"></span></p>
+      <p><strong>Family:</strong> <span id="modalFamily"></span></p>
+    </div>
+  </div>
+  
+</main>
+<div id="noResultsMessage">No plants found matching your search!</div>
+
+    <section class="about-us" id="AboutUsSection">
+      <button class="close-btna" id="CloseBtna">&times;</button>
+      <h2>About Us</h2>
+      <p>Welcome to Plantvex! My name is <a href="#" id="AboutMeLink">Dhruba Das</a>, and I created this website to combine my passion for plants with my journey in web development. As a Botany student, I'm fascinated by the plant world, and I wanted to build something that could help others discover and appreciate it too.</p>
+      <p>Plantvex is a place where I share what I've learned about various plants, including scientific names, local names, and key information about each species. It’s a personal project that allows me to dive deeper into botany while also practicing web development skills like HTML, CSS, and JavaScript. All images featured on this site are sourced from <a href="https://pixabay.com" target="_blank">Pixabay</a>, a platform offering high-quality, royalty-free visuals.</p>
+      <p>My goal with Plantvex is to create a resource that’s both informative and accessible, whether you’re a fellow student, a plant enthusiast, or someone just curious about the natural world. Building this website has been a rewarding way to bring together my studies and my technical interests.</p>
+      <p>Thank you for visiting and being part of my journey. I hope you find Plantvex both useful and enjoyable as I continue to expand its content and features!</p>
+          </section>
+
+
+    <div class="about-container" id="AboutMe">
+
+      <button class="close-btna" id="CloseBtnam">&times;</button>
+        <!-- Image Section -->
+        <div class="about-image">
+            <img src="dweb.jpg"
+                alt="Developer">
+        </div>
+
+        <!-- Content Section -->
+        <div class="about-content">
+          <h1>Dhruba Das</h1>
+          <h3>Web Development Enthusiast</h3>
+          <p>
+              Hi, I’m Dhruba Das, a student with a keen interest in plants and technology. I’ve recently started learning 
+              web development and created a simple project—a website to share knowledge about plants. This project reflects 
+              my passion for nature and my excitement about building meaningful digital experiences. I’m always eager to learn 
+              and grow in both fields.
+          </p>
+          
+          
+            <a href="#" class="cta-button" onclick="openLink()">Contact Me</a>
+        </div>
+    </div>
+
+    <!--footer-->
+    <footer id="footer">
+        <div class="footer-container" id="Contact">
+            <div class="footer-logo">
+                <img src="Nalogo.png" alt="logo">
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#" id="AboutUsLink">About Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-social">
+                <a href="https://t.me/PlantVex" target="_blank" class="fa-brands fa-telegram"></a>
+                <a href="https://x.com/Plant_Vex" target="_blank" class="fa-brands fa-x-twitter"></a>
+                <a href="https://www.instagram.com/plantvex/" target="_blank" class="fa-brands fa-instagram"></a>
+                <a href="https://www.facebook.com/profile.php?id=61569660502256&mibextid=ZbWKwL" target="_blank" class="fa-brands fa-facebook"></a>
+            </div>
+            <div class="footer-contact">
+                <i class="fa-solid fa-envelope"></i> <a href="mailto:mmklxlik@plantvex.freewebhostmost.com"
+                    class="Email">mmklxlik@plantvex.freewebhostmost.com</a>
+            </div>
+        </div>
+    </footer>
+
+    <!--Js linke-->
+    <script src="script.js"></script>
+</body>
+
+</html>
